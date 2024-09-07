@@ -9,7 +9,9 @@ const publicPath='public'
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+
+app.use(cors());
+
 //PublicFolder
 app.use(express.static(publicPath))
 //Routes

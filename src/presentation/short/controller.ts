@@ -14,7 +14,7 @@ const getShortByID = (req:Request,res:Response)=>{
     const {id}=req.params
     if(!id) throw new Error('id invalido')
    
-    getShortService(id).then(url=>res.json({ok:true, URL:url})).catch(err=>handlingErrors(err,res))
+    getShortService(id).then(url=>res.redirect(url)).catch(err=>res.redirect('/'))
 }
 
 

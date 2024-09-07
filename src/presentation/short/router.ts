@@ -7,7 +7,9 @@ const router = Router();
 
 router.post('/',[schemaValidationMiddleware(createShortSchema)], createShort)
 
+
 router.get('/:id', getShortByID)
+
 
 
 export default router
