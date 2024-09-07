@@ -10,12 +10,15 @@ const createShort = (req:Request,res:Response)=>{
     const {URL}=req.body
     createShortService(URL).then(short=>res.json({ok:true, URL:short})).catch(error=>res.json(error))
 }
-const getShortByID = (req:Request,res:Response)=>{
+const getShortByID = (req:Request, res:Response) => {
     const {id}=req.params
-    if(!id) throw new Error('id invalido')
+    const {host} = req.headers; 
+    
+   console.log({id,host}) // URL de la API REST externa
+   getShortService(id).then(url=>res.redirect(url)).catch(err=>res.redirect('/'))
+ 
    
-    getShortService(id).then(url=>res.redirect(url)).catch(err=>res.redirect('/'))
-}
+  };
 
 
 
